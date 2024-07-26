@@ -1,8 +1,11 @@
-<p>
-<strong><%= comment.author %></strong><br>
-<%= comment.body %>
-</p>
-<p>
-<%= link_to 'Delete Comment', [comment.article, comment], data: {
-  turbo_method: :delete, turbo_confirm: 'Are you sure?'
-} %>
+<% unless comment.archived? %>
+  <p>
+    <strong><%= comment.author %></strong><br>
+    <%= comment.body %> <br>
+  </p>
+  <p>
+
+  <%= link_to 'Delete Comment', [comment.article, comment], data: {
+    turbo_method: :delete, turbo_confirm: 'Are you sure?'
+  } %>
+  <% end %>
