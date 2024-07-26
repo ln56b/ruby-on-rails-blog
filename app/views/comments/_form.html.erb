@@ -1,13 +1,19 @@
-<%= form_with model: [ @article, @article.comments.build ] do |form| %>
+<%= form_with model: [ @article, @article.comments.build ] do |f| %>
     <p>
-      <%= form.label :author %><br>
-      <%= form.text_field :author %>
+      <%= f.label :author %><br>
+      <%= f.text_field :author %>
     </p>
     <p>
-      <%= form.label :body %><br>
-      <%= form.text_area :body %>
+      <%= f.label :body %><br>
+      <%= f.text_area :body %>
     </p>
+
     <p>
-      <%= form.submit %>
+    <%= f.label :status %><br>
+    <%= f.select :status, Visible::VALID_STATUSES, selected: 'public' %>
+    </p>
+
+    <p>
+      <%= f.submit %>
     </p>
 <% end %>
